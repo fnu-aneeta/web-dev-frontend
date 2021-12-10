@@ -2,7 +2,7 @@ import { useHistory } from "react-router-dom";
 import NavigationSidebar from "../NavigationSidebar";
 import {useState} from "react";
 // const USER_API = 'http://localhost:4000/api/users';
-import CONSTANTS from "./consts";
+import CONSTANTS from "../../../consts";
 // import Navigation from "../Nagivation";
 
 

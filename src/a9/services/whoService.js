@@ -1,7 +1,7 @@
-const WHO_API = 'http://localhost:4000/rest/who';
+import CONSTANTS  from "../../consts";
 
 export const fetchAllWho = (dispatch) =>
-    fetch(WHO_API)
+    fetch(CONSTANTS.API_WHO)
         .then(response => response.json())
         .then(who =>
             dispatch({
