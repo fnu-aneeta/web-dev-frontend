@@ -41,9 +41,9 @@ function App() {
              <Route path="/signup">
                  <Signup/>
              </Route>
-             <Route path="/login">
-                 <Login/>
-             </Route>
+             <Route path="/login" exact={true} component={LoginScreen}/>
+             {/*    <Login/>*/}
+             {/*</Route>*/}
              <Route path="/profile" exact={true} component={ProfileScreen}/>
 
 
