@@ -4,6 +4,7 @@ import {useState} from "react";
 // const USER_API = 'http://localhost:4000/api/users';
 import CONSTANTS from "../../../consts";
 // import Navigation from "../Nagivation";
+import history from "../../../utils/history";
 
 
 const Login = () => {
@@ -18,7 +19,9 @@ const Login = () => {
                 'content-type': 'application/json'
             }
         }).then(status => {
-            navigate('/profile')
+            history.push("/profile");
+            history.go();
+            //navigate('/profile');
         });
     }
     return(

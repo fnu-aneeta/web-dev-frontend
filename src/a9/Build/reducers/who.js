@@ -10,10 +10,10 @@ const who = (state = initialState, action) => {
             return ({
                 who: action.who
             })
-        break;
+            break;
 
-            default:
-            return(state);
+        default:
+            return (state);
     }
 
 

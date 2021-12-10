@@ -1,12 +1,15 @@
-import React from "react";
+import React, {useEffect} from "react";
 //import post from "./post.json";
 import PostSummaryListItem from "./PostSummaryListItem";
-import {useSelector} from "react-redux";
+import {useDispatch, useSelector} from "react-redux";
+import {fetchAllPosts} from "../../services/postService";
 
 const selectAllPosts = (state) => state.post.post;
 
 const PostSummaryList = ({title}) => {
     const post = useSelector(selectAllPosts);
+    const dispatch = useDispatch();
+    useEffect(()=> fetchAllPosts(dispatch), [])
     return(
         <ul className="list-group">
             {

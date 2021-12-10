@@ -4,8 +4,18 @@ const initialState = {
     post: postJson
 }
 
-const post = (state = initialState) => {
-    return(state);
+const post = (state = initialState, action) => {
+    switch (action.type) {
+        case 'fetch-all-posts':
+            return ({
+                post: action.post
+            })
+            break;
+
+        default:
+            return(state);
+    }
 };
 
 export default post;
+

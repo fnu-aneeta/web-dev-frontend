@@ -3,21 +3,7 @@ import '../HomeScreen/home.css';
 
 const PostSummaryListItem = (
     {
-        post = {
-            // topic: 'Web Development',
-            // userName: '',
-            // time: ' last month',
-            // title: 'NodeJS',
-            // image: 'https://seeklogo.com/images/N/nodejs-logo-FBE122E377-seeklogo.com.png',
-            // tweets: '123k Tweets',
-
-                topic: 'Web Development',
-                userName: 'ReactJS',
-                time: '2h',
-                title: 'React.js is a component based front end library that makes it very easy to build Single Page Applications or SPAs',
-                image: 'https://seeklogo.com/images/N/nodejs-logo-FBE122E377-seeklogo.com.png'
-
-        }
+        post
     }
 ) => {
 
@@ -28,40 +14,30 @@ const PostSummaryListItem = (
                             <div className="row">
                                 <div className="col-10">
 
-                                    <div>{post.topic}</div>
-                                {/*<div className="col-9 col-md-10">*/}
-                                {/*    <div className="text-muted">{post.topic}</div>*/}
+                                    <div className="fw-bold">{post.title}</div>
 
-                                   <span className="fw-bold">{post.userName}</span>
+                                   <div>{post.companyName}</div>
 
-                                    <span className = "fa-stack" style={{"fontSize": "0.8em"}}>&nbsp;
-                                        <i className = "fas fa-code"></i>
-                                    </span>
 
-                                    {post.time}
+                                    <div>
+                                        <span>{post && post.address && post.address.city}, </span>
+                                        <span>{post && post.address && post.address.state} </span>
+                                        <span>({post && post.address && post.address.country})</span>
+                                    </div>
 
-                                    {/*<div>*/}
-                                    {/*  <span className="fw-bold">*/}
-                                    {/*      {post.userName}*/}
-                                    {/*      <span className="fa-stack" style={{"fontSize": "0.5em"}}>*/}
-                                    {/*        <i className="fas fa-circle fa-stack-2x"></i>*/}
-                                    {/*        <i className="fas fa-check fa-stack-1x fa-inverse"></i>*/}
-                                    {/*      </span>*/}
-                                    {/*  </span>*/}
-                                    {/*    <span className="text-muted">*/}
-                                    {/*        - {post.time}*/}
-                                    {/*    </span>*/}
-                                    {/*</div>*/}
-                               <br/>
-                                    <span className="text-muted">
-                                    {post.title}
-                                    </span>
+                                    <div>
+                                        <span style={{"fontSize": "0.8em"}}>
+                                            {post && post.salary && post.salary.min} -
+                                            {post && post.salary && post.salary.max}
+                                        </span>
+                                    </div>
+
                                   <br/>
-                                    <h7 className="fw-normal text-color">{post.tweets}</h7>
+                                    <h7 className="fw-normal text-color">{post.description}</h7>
                                 </div>
 
                                 <div className="col-2 mt-3">
-                                    <img className="rounded img-fluid" src={post.image}
+                                    <img className="rounded img-fluid" src={post['logo-image']}
                                          width="75px"
                                          height="75px"/>
                                 </div>
