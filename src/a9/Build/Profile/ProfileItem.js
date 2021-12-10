@@ -24,17 +24,8 @@ const ProfileItem = (
     // if(!profile) return null;
     return(
         <div className="mb-2">
-                <div className="row">
-                    <div className="col-2">
-                    <i className="fa fa-arrow-left"/>
-                    </div>
-                    <div className="col-8">
-                        <h4 className="fw-bold">{profile && profile.username}</h4>
-                        <span>5196 Tweets</span>
-                    </div>
-                </div>
                 <div className="border border-dark mt-0">
-                <img src={profile && profile.bannerPicture} alt="bannerPicture"
+                <img src={profile && profile.coverImage} alt="bannerPicture"
                      width="100%"
                      height="200"/>
                     {/*<span><i className="fas fa-times wd-cross-icon-banner"></i>*/}
@@ -43,7 +34,7 @@ const ProfileItem = (
 
             <div className="row">
                 <div className="col-9">
-                   <img src={profile && profile.profilePicture}
+                   <img src={profile && profile.profileImage}
                      alt="bannerPicture"
                      width="100px"
                      height="100px"
@@ -64,29 +55,38 @@ const ProfileItem = (
 
 <table>
             <div className="row">
-                <h4 className="fw-bold">{profile &&profile.username}</h4>
-                    <span>{profile &&profile.handle}</span>
-            </div>
-            <div className="row mt-1">
-                {/*<div className="wd-text-detail-color">{profile &&profile.bio}</div>*/}
-                {profile &&profile.bio}
-            </div>
-            <div className="row">
-                <div>{profile &&profile.website}</div>
+                <h4 className="fw-bold">{profile && profile.firstName} {profile && profile.lastName}</h4>
+                <div>
+                    <span>{profile && profile.jobTitle}</span>
+                    <span> at </span>
+                    <span>{profile && profile.company}</span>
+                </div>
+                <div>
+                    <span>{profile && profile.address && profile.address.city}</span>
+                    <span>, </span>
+                    <span>{profile && profile.address && profile.address.state}</span>
+                    <span>, </span>
+                    <span>{profile && profile.address && profile.address.country}</span>
+                </div>
+
+                <div className="row">
+                    <div>{profile &&profile.website}</div>
+                </div>
             </div>
 
-            <div className="row mt-1">
-                <i className="col-4 fas fa-map-marker-alt">&nbsp;{profile &&profile.location}</i>
-                <i className="col-6 fas fa-stopwatch">&nbsp;Born&nbsp;{profile && new Date(profile.dateOfBirth).toDateString()}</i>
-                <i className="col-2 fas fa-calendar">&nbsp;Joined&nbsp;{profile &&profile.dateJoined}</i>
-            </div>
 
-            <div className="row mt-1">
-                 <span className="col-1">{profile &&profile.followingCount}</span>
-                 <span className="col-5">Following</span>
-                 <span className="col-1">{profile &&profile.followersCount}</span>
-                 <span className="col-5">Followers</span>
-            </div>
+            {/*<div className="row mt-1">*/}
+            {/*    <i className="col-4 fas fa-map-marker-alt">&nbsp;{profile &&profile.location}</i>*/}
+            {/*    <i className="col-6 fas fa-stopwatch">&nbsp;Born&nbsp;{profile && new Date(profile.dateOfBirth).toDateString()}</i>*/}
+            {/*    <i className="col-2 fas fa-calendar">&nbsp;Joined&nbsp;{profile &&profile.dateJoined}</i>*/}
+            {/*</div>*/}
+
+            {/*<div className="row mt-1">*/}
+            {/*     <span className="col-1">{profile &&profile.followingCount}</span>*/}
+            {/*     <span className="col-5">Following</span>*/}
+            {/*     <span className="col-1">{profile &&profile.followersCount}</span>*/}
+            {/*     <span className="col-5">Followers</span>*/}
+            {/*</div>*/}
 </table>
 
         </div>

@@ -1,11 +1,16 @@
-import {fetchAllTweets} from "./twitterService";
-
-const PROFILE_API = 'http://localhost:4000/rest/profile';
-// const PROFILE_API = 'https://node-on-server.herokuapp.com';
+import CONSTANTS  from "../../consts";
 
 export const getCurrentProfile = (dispatch) =>
-    fetch(PROFILE_API)
-        .then(response => response.json())
+    fetch(CONSTANTS.API_PROFILE, {
+        method: 'POST',
+        credentials: 'include',
+        headers: {
+            'content-type': 'application/json'
+        }
+    })
+        .then(response => {
+            response.json();
+        })
         .then(profile =>
             dispatch({
                 type: 'get-current-profile',
@@ -13,12 +18,16 @@ export const getCurrentProfile = (dispatch) =>
             })
         );
 
+//Todo: Update below
 export const findProfileById = (id) =>
-    fetch(`${PROFILE_API}/${id}`)
-        .then(response => response.json());
+    fetch(`${CONSTANTS.API_PROFILE}/${id}`)
+        .then(response => {
+            console.log("Ponka1");
+            response.json();
+        });
 
 export const updateCurrentProfile = (dispatch, profile) =>
-    fetch(`${PROFILE_API}`, {
+    fetch(`${CONSTANTS.API_PROFILE}`, {
         method: 'PUT',
         body: JSON.stringify(profile),
         headers: {

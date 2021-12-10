@@ -9,7 +9,7 @@ import history from "../../../utils/history";
 
 const Login = () => {
     const [user, setUser] = useState({});
-    const navigate = useHistory();
+    //const navigate = useHistory();
     const login = () => {
         fetch(CONSTANTS.API_LOGIN, {
             method: 'POST',
