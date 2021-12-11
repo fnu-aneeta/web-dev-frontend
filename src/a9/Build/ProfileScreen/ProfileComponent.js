@@ -1,10 +1,10 @@
 import React from "react";
-import ProfileList from "../Profile/ProfileList";
+import ProfileHeader from "../Profile/ProfileHeader";
 
 const ProfileComponent = () => {
     return(
         <>
-            <ProfileList/>
+            <ProfileHeader/>
         </>
     );
 }

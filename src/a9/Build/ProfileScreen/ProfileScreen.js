@@ -6,7 +6,7 @@ import PostSummaryList from "../PostSummaryList/PostSummaryList";
 import WhatsHappening from "../WhatsHappening";
 import ProfileComponent from "./ProfileComponent";
 import EditProfileItem from "../EditProfile/EditProfileItem";
-import ProfileItem from "../Profile/ProfileItem";
+import ProfileHeaderItems from "../Profile/ProfileHeaderItems";
 
 // (function ($) {
 //     $('#wd-home').append(`
@@ -23,7 +23,7 @@ const ProfileScreen = () => {
                 <div className="col-6 col-sm-10 col-md-10 col-lg-7 col-xl-6 col-xxl-6">
                     <ProfileComponent/>
                     {/*<EditProfileItem/>*/}
-                    {/*<ProfileItem/>*/}
+                    {/*<ProfileHeaderItems/>*/}
                     {/*<ExploreComponent/>*/}
 
                 </div>

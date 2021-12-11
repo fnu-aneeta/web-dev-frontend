@@ -4,7 +4,7 @@ import {Link} from "react-router-dom";
 // import EditProfileItem from "../EditProfile/EditProfileItem";
 // import {useSelector} from "react-redux";
 
-const ProfileItem = (
+const ProfileHeaderItems = (
 
     {
         profile =
@@ -94,4 +94,4 @@ const ProfileItem = (
     );
 
 }
-export default ProfileItem;
+export default ProfileHeaderItems;

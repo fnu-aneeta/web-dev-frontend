@@ -1,11 +1,9 @@
 import React, {useEffect, useState} from "react";
-import ProfileItem from "./ProfileItem";
+import ProfileHeaderItems from "./ProfileHeaderItems";
 import history from "../../../utils/history";
 import CONSTANTS  from "../../../consts";
 
-const selectAllProfile = (state) => state.profile.profile;
-
-const ProfileList = () => {
+const ProfileHeader = () => {
     const [profile, setProfile] = useState({});
     const getProfile = () => {
         fetch(CONSTANTS.API_PROFILE, {
@@ -36,7 +34,7 @@ const ProfileList = () => {
 
         <ul className="list-group">
             {
-                <ProfileItem profile={profile}/>
+                <ProfileHeaderItems profile={profile}/>
             }
             <button
                 onClick={logout}
@@ -48,5 +46,5 @@ const ProfileList = () => {
     );
 
 }
-export default ProfileList;
+export default ProfileHeader;
 
