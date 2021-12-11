@@ -36,11 +36,6 @@ const ProfileHeader = () => {
             {
                 <ProfileHeaderItems profile={profile}/>
             }
-            <button
-                onClick={logout}
-                className="btn btn-danger">
-                Logout
-            </button>
         </ul>
 
     );
