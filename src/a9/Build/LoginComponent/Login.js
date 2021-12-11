@@ -19,9 +19,14 @@ const Login = () => {
                 'content-type': 'application/json'
             }
         }).then(status => {
-            history.push("/profile");
-            history.go();
+            if(status.ok) {
+                history.push("/profile");
+                history.go();
+            }
             //navigate('/profile');
+        }).catch(e=>{
+            console.log("Exception");
+            console.log(e);
         });
     }
     return(

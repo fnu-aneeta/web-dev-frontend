@@ -13,7 +13,7 @@ const EditProfileItem = ({profile}) => {
     const [localProfile, setLocalProfile] = useState(profile);
     const updateProfile = (update, type) => {
         if (type==="uname"){
-            setLocalProfile(prevState => ( {...prevState, username: update}));
+            setLocalProfile(prevState => ( {...prevState, email: update}));
         }
         else if(type === "bio"){
             setLocalProfile(prevState => ( {...prevState, bio: update}));
@@ -105,8 +105,8 @@ const EditProfileItem = ({profile}) => {
                         <label htmlFor="formGroupExampleInput">Name</label>
                         <input onChange={(event) => updateProfile(event.target.value, "uname")}
                                type="text" className="form-control" id="name"
-                               value={localProfile.username}
-                               style={{width: "100%", color: "white",
+                               value={localProfile.email}
+                               style={{width: "100%",
                                    padding: "10px",
                                    paddingTop: "15px",
                                    background: "none",
@@ -117,7 +117,7 @@ const EditProfileItem = ({profile}) => {
                         <input onChange={(event) => updateProfile(event.target.value, "bio")}
                                type="text" className="form-control" id="bio"
                                value={localProfile.bio}
-                               style={{width: "100%", color: "white",
+                               style={{width: "100%",
                                    padding: "10px",
                                    paddingTop: "15px",
                                    background: "none",
@@ -130,7 +130,7 @@ const EditProfileItem = ({profile}) => {
                         <input onChange={(event) => updateProfile(event.target.value, "location")}
                                type="text" className="form-control" id="location"
                                value={localProfile.location}
-                               style={{width: "100%", color: "white",
+                               style={{width: "100%",
                                    padding: "10px",
                                    paddingTop: "15px",
                                    background: "none",
@@ -142,7 +142,7 @@ const EditProfileItem = ({profile}) => {
                         <input onChange={(event) => updateProfile(event.target.value, "website")}
                                type="text" className="form-control" id="website"
                                value={localProfile.website}
-                               style={{width: "100%", color: "white",
+                               style={{width: "100%",
                                    padding: "10px",
                                    paddingTop: "15px",
                                    background: "none",
@@ -154,7 +154,7 @@ const EditProfileItem = ({profile}) => {
                         <input onChange={(event) => updateProfile(event.target.value, "birth")}
                                type="date" className="form-control" id="birth"
                                value={localProfile.dateOfBirth}
-                               style={{width: "100%", color: "white",
+                               style={{width: "100%",
                                    padding: "10px",
                                    paddingTop: "15px",
                                    background: "none",

@@ -6,28 +6,45 @@ import CONSTANTS  from "../../../consts";
 const selectAllProfile = (state) => state.profile.profile;
 
 const ProfileList = () => {
-    const [profile, setUser] = useState({});
+    const [profile, setProfile] = useState({});
     const getProfile = () => {
         fetch(CONSTANTS.API_PROFILE, {
             method: 'POST',
             credentials: 'include'
         }).then(res => res.json())
-            .then(user => {
-                setUser(user);
+            .then(profile => {
+                setProfile(profile);
             }).catch(e => {
                 history.push('/login');
                 history.go();
             });
     }
 
+    const logout = () => {
+        fetch(CONSTANTS.API_LOGOUT, {
+            method: 'POST',
+            credentials: 'include'
+        }).then(res => {
+            history.push('/login');
+            history.go();
+        });
+    }
+
     useEffect(getProfile, []);
     return(
+
 
         <ul className="list-group">
             {
                 <ProfileItem profile={profile}/>
             }
+            <button
+                onClick={logout}
+                className="btn btn-danger">
+                Logout
+            </button>
         </ul>
+
     );
 
 }
