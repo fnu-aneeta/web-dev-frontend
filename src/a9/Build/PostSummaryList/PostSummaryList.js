@@ -3,13 +3,15 @@ import React, {useEffect} from "react";
 import PostSummaryListItem from "./PostSummaryListItem";
 import {useDispatch, useSelector} from "react-redux";
 import {fetchAllPosts} from "../../services/postService";
+import {useLocation} from "react-router-dom";
+
 
 const selectAllPosts = (state) => state.post.post;
-
 const PostSummaryList = ({title}) => {
+    const { search } = useLocation();
     const post = useSelector(selectAllPosts);
     const dispatch = useDispatch();
-    useEffect(()=> fetchAllPosts(dispatch), [])
+    useEffect(()=> fetchAllPosts(dispatch, search?search:""), [])
     return(
         <ul className="list-group">
             {

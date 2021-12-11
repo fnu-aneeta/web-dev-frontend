@@ -1,7 +1,7 @@
 import CONSTANTS  from "../../consts";
 
-export const fetchAllPosts = (dispatch) =>
-    fetch(CONSTANTS.API_POSTS)
+export const fetchAllPosts = (dispatch, queryString) => {
+    fetch(`${CONSTANTS.API_SEARCH_POSTS}/${queryString}`)
         .then(response => response.json())
         .then(post =>
             dispatch({
@@ -9,3 +9,4 @@ export const fetchAllPosts = (dispatch) =>
                 post
             })
         );
+}

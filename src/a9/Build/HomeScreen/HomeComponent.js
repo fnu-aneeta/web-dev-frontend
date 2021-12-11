@@ -1,13 +1,20 @@
 import React from "react";
 import PostSummaryList from "../PostSummaryList/PostSummaryList.js";
+import history from "../../../utils/history";
 
 const HomeComponent = ({
                   active = 'for you'
-                  }
-) =>
+                  }) =>
 {
+    const searchString = React.createRef();
     const onSearch = () => {
-        console.log("Search Clicked");
+        if(searchString.current.value) {
+            history.push(`/home?search=${searchString.current.value}`);
+        }else{
+            history.push('/home');
+        }
+        history.go();
+
     }
     const isActive = (active, path) => `nav-link text-color ${active === path? 'active' : ''}`
     return(
@@ -15,7 +22,7 @@ const HomeComponent = ({
             <div className="row mb-2">
                 <div className="col-10">
                     <i className="fas fa-search magnifying-glass"></i>
-                    <input className="form-control rounded-pill position-search"
+                    <input ref={searchString} className="form-control rounded-pill position-search"
                            placeholder="          Search Jobs"/>
                 </div>
                 <div className="col-2">

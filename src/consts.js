@@ -7,6 +7,7 @@ const API_LOGIN = `${API_HOST}/api/login`;
 const API_LOGOUT = `${API_HOST}/api/logout`;
 const API_WHO = `${API_HOST}/api/rand/who`;
 const API_POSTS = `${API_HOST}/api/posts`;
+const API_SEARCH_POSTS = `${API_HOST}/api/search/posts`;
 const API_PROFILE = `${API_HOST}/api/profile`;
 
 module.exports = {
@@ -15,5 +16,6 @@ module.exports = {
     API_URL,
     API_POSTS,
     API_PROFILE,
-    API_LOGOUT
+    API_LOGOUT,
+    API_SEARCH_POSTS
 };
