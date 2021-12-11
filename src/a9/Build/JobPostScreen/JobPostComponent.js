@@ -1,11 +1,11 @@
 import React from "react";
 import TweetList from "../TweetList/TweetList";
 
-const ExploreComponent = () => {
+const JobPostComponent = () => {
     return(
       <>
        <TweetList/>
       </>
   );
 }
-export default ExploreComponent;
+export default JobPostComponent;

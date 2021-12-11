@@ -1,7 +1,6 @@
 import {Link} from "react-router-dom";
 import React from "react";
 import '../HomeScreen/home.css';
-// import {useSelector} from "react-redux";
 const NavigationSidebar = (
     {
         active = 'home'
@@ -13,19 +12,14 @@ const NavigationSidebar = (
     return(
 
         <div>
-            {/*{JSON.stringify(profile)}*/}
             <div className="list-group">
-                {/*<Link className="list-group-item" to="login.html">*/}
-                {/*    <i className="fas fa-user-plus"></i>*/}
-                {/*    <span className="d-none d-xl-inline-block">Signup / Login</span>*/}
-                {/*</Link>*/}
                 <Link className = {isActive(active, 'home')}
                  to = "/home">
                     <i className="fas fa-home"></i>&nbsp;
                     <span className="d-none d-xl-inline-block">Home</span>
                 </Link>
                 <Link className={isActive(active, 'explore')}
-                to="/explore">
+                to="/job-post">
                     <i className="fa fa-mail-bulk"></i>&nbsp;
                     <span className="d-none d-xl-inline-block">Post A Job</span>
                 </Link>

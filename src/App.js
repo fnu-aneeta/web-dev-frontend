@@ -8,7 +8,7 @@ import tweets from "./a9/Build/reducers/tweets";
 import profile from "./a9/Build/reducers/profile";
 import post from "./a9/Build/reducers/post";
 import Signup from "./a9/Build/LoginComponent/Signup";
-import ExploreScreen from "./a9/Build/ExploreScreen/ExploreScreen";
+import JobPostScreen from "./a9/Build/JobPostScreen/JobPostScreen";
 import React from "react";
 import HomeScreen from "./a9/Build/HomeScreen/HomeScreen";
 import ProfileScreen from "./a9/Build/ProfileScreen/ProfileScreen";
@@ -30,7 +30,7 @@ function App() {
 
          <div className="container">
              <Route path={["/", "/home"]} exact={true} component={HomeScreen}/>
-             <Route path="/explore" exact={true} component={ExploreScreen}/>
+             <Route path="/job-post" exact={true} component={JobPostScreen}/>
              <Route path="/blog" exact={true} component={BlogScreen}/>
 
              <Route path="/editProfile" exact={true} component={EditProfileScreen}/>
