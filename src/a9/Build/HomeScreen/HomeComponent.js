@@ -6,6 +6,9 @@ const HomeComponent = ({
                   }
 ) =>
 {
+    const onSearch = () => {
+        console.log("Search Clicked");
+    }
     const isActive = (active, path) => `nav-link text-color ${active === path? 'active' : ''}`
     return(
    <div>
@@ -13,10 +16,10 @@ const HomeComponent = ({
                 <div className="col-10">
                     <i className="fas fa-search magnifying-glass"></i>
                     <input className="form-control rounded-pill position-search"
-                           placeholder="          Search Twitter"/>
+                           placeholder="          Search Jobs"/>
                 </div>
                 <div className="col-2">
-                    <i className="fas fa-cog fa-2x cog-color"></i>
+                    <i className="fas fa-cog fa-2x cog-color" onClick={onSearch}></i>
                 </div>
            </div>
 
@@ -29,7 +32,7 @@ const HomeComponent = ({
 
     </div>
        <PostSummaryList/>
-</div>
+    </div>
   );
 }
 export default HomeComponent;
