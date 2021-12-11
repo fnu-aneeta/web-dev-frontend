@@ -44,6 +44,11 @@ const NavigationSidebar = (
                     <i className="fas fa-comment-dots"></i>&nbsp;
                     <span className="d-none d-xl-inline-block">Contact Us</span>
                 </Link>
+                <Link className={isActive(active, 'privacy-policy')}
+                      to="/privacy-policy">
+                    <i className="fas fa-print"></i>&nbsp;
+                    <span className="d-none d-xl-inline-block">Privacy Policy</span>
+                </Link>
             </div>
         </div>
 

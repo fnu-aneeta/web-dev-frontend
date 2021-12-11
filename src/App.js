@@ -7,19 +7,16 @@ import who from "./a9/Build/reducers/who";
 import tweets from "./a9/Build/reducers/tweets";
 import profile from "./a9/Build/reducers/profile";
 import post from "./a9/Build/reducers/post";
-import A9 from "./a9";
-import Login from "./a9/Build/LoginComponent/Login";
 import Signup from "./a9/Build/LoginComponent/Signup";
-import Prof from "./a9/Build/LoginComponent/Prof";
 import ExploreScreen from "./a9/Build/ExploreScreen/ExploreScreen";
 import React from "react";
 import HomeScreen from "./a9/Build/HomeScreen/HomeScreen";
-import BlogComponent from "./a9/Build/BlogComponent/BlogComponent";
 import ProfileScreen from "./a9/Build/ProfileScreen/ProfileScreen";
 import EditProfileScreen from "./a9/Build/EditProfileScreen/EditProfileScreen";
 import LoginScreen from "./a9/Build/LoginComponent/LoginScreen";
 import BlogScreen from "./a9/Build/BlogComponent/BlogScreen";
 import ContactUsScreen from "./a9/Build/ContactUsScreen/ContactUsScreen";
+import PrivacyPolicyScreen from "./a9/Build/PrivacyPolicyScreen/PrivacyPolicyScreen";
 
 const reducer = combineReducers({tweets: tweets, who, profile, post})
 const store = createStore(reducer);
@@ -38,6 +35,7 @@ function App() {
 
              <Route path="/editProfile" exact={true} component={EditProfileScreen}/>
              <Route path="/contact" exact={true} component={ContactUsScreen}/>
+             <Route path="/privacy-policy" exact={true} component={PrivacyPolicyScreen}/>
              <Route path="/signup">
                  <Signup/>
              </Route>

@@ -1,11 +1,4 @@
 import NavigationSidebar from "../NavigationSidebar/index.js";
-// import BlogComponent from "./BlogComponent.js";
-import ExploreComponent from "../ExploreScreen/ExploreComponent";
-// import HomeComponent from "../BlogScreen/HomeComponent.js";
-import PostSummaryList from "../PostSummaryList/PostSummaryList";
-// import WhatsHappening from "../WhatsHappening";
-// import EditProfileItem from "../EditProfile/EditProfileItem";
-// import EditProfileComponent from "./EditProfileComponent";
 import ContactUsComponent from "./ContactUsComponent";
 
 const ContactUsScreen = () => {
