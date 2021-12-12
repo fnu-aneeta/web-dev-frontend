@@ -40,8 +40,6 @@ function App() {
                  <Signup/>
              </Route>
              <Route path="/login" exact={true} component={LoginScreen}/>
-             {/*    <Login/>*/}
-             {/*</Route>*/}
              <Route path="/profile" exact={true} component={ProfileScreen}/>
 
 

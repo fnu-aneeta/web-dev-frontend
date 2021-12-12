@@ -1,10 +1,10 @@
 import React from "react";
-import TweetList from "../TweetList/TweetList";
+import JobPostList from "../JobPostList/JobPostList";
 
 const JobPostComponent = () => {
     return(
       <>
-       <TweetList/>
+       <JobPostList/>
       </>
   );
 }

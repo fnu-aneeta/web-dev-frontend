@@ -1,12 +1,11 @@
 import React, {useEffect} from "react";
 import {useDispatch, useSelector} from "react-redux";
-import TweetListItem from "./TweetListItem";
-// import {fetchAllTweets} from "../../../../services/twitterService";
+import JobPostListItem from "./JobPostListItem";
 import {fetchAllTweets} from "../../services/twitterService";
 
 const selectAllTweets = (state) => state.tweets.tweets;
 
-const TweetList = () => {
+const JobPostList = () => {
     const tweets = useSelector(selectAllTweets);
     const dispatch = useDispatch();
     useEffect(() => fetchAllTweets(dispatch), [])
@@ -14,11 +13,11 @@ const TweetList = () => {
         <ul className="list-group">
             {
                 tweets.map(tweet =>
-                    <TweetListItem tweet={tweet}/>
+                    <JobPostListItem tweet={tweet}/>
                 )
             }
         </ul>
     )
 };
 
-export default TweetList;
+export default JobPostList;

@@ -3,7 +3,7 @@ import {useDispatch} from "react-redux";
 // import {likeTweet} from "../../../../services/twitterService";
 import {likeTweet} from "../../services/twitterService";
 
-const TweetStats = (
+const JobPostStats = (
     {
         tweet
     }
@@ -58,4 +58,4 @@ const TweetStats = (
     )
 }
 
-export default TweetStats;
+export default JobPostStats;
