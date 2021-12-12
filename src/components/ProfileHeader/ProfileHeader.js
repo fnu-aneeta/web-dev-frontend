@@ -2,26 +2,11 @@ import React, {useEffect, useState} from "react";
 import ProfileHeaderItems from "./ProfileHeaderItems";
 import history from "../../utils/history";
 import CONSTANTS  from "../../consts";
+import {fetchCurrentProfile} from "../../a9/services/profileService";
 
 const ProfileHeader = () => {
-    const [profile, setProfile] = useState({});
-    const getProfile = () => {
-        fetch(CONSTANTS.API_PROFILE, {
-            method: 'POST',
-            credentials: 'include'
-        }).then(res => res.json())
-            .then(profile => {
-                setProfile(profile);
-            }).catch(e => {
-                history.push('/sign-in');
-                history.go();
-            });
-    }
-
-    useEffect(getProfile, []);
-    return(
-
-
+    const [profile, setProfile] = useState(fetchCurrentProfile);
+    return (
         <ul className="list-group">
             {
                 <ProfileHeaderItems profile={profile}/>
@@ -29,7 +14,6 @@ const ProfileHeader = () => {
         </ul>
 
     );
-
 }
 export default ProfileHeader;
 

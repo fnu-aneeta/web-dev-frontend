@@ -1,39 +1,14 @@
-import { useHistory } from "react-router-dom";
-import NavigationSidebar from "../NavigationSidebar";
 import {useState} from "react";
-// const USER_API = 'http://localhost:4000/api/users';
-import CONSTANTS from "../../consts";
-// import Navigation from "../Nagivation";
-import history from "../../utils/history";
+import {redirectSignUp, signIn} from "../../a9/services/profileService";
 
 
 const SignIn = () => {
     const [user, setUser] = useState({});
-    //const navigate = useHistory();
+
     const onSignIn = () => {
-        fetch(CONSTANTS.API_SIGN_IN, {
-            method: 'POST',
-            body: JSON.stringify(user),
-            credentials: 'include',
-            headers: {
-                'content-type': 'application/json'
-            }
-        }).then(status => {
-            if (status.ok) {
-                history.push("/profile");
-                history.go();
-            }
-            //navigate('/profile');
-        }).catch(e => {
-            console.log("Exception");
-            console.log(e);
-        });
+        signIn(user);
     }
 
-    const onSignUp = ()=>{
-        history.push("/sign-up");
-        history.go();
-    }
     return (
         <div>
             <h1>Sign In</h1>
@@ -61,7 +36,7 @@ const SignIn = () => {
                 <div className="col-6 d-grid">
                     <button
                         className="btn btn-primary rounded-pill"
-                        onClick={onSignUp}>
+                        onClick={redirectSignUp}>
                         Sign Up
                     </button>
                 </div>

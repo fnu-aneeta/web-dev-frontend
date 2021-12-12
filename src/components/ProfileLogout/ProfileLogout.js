@@ -1,28 +1,15 @@
-import history from "../../utils/history";
-import CONSTANTS  from "../../consts";
+import {signOut} from "../../a9/services/profileService";
 
 const ProfileLogout = () => {
-    const logout = () => {
-        fetch(CONSTANTS.API_LOGOUT, {
-            method: 'POST',
-            credentials: 'include'
-        }).then(res => {
-            history.push('/sign-in');
-            history.go();
-        });
-    }
-
     return (
         <div className="list-group">
             <button
-                onClick={logout}
-                className="btn btn-danger">
-                Logout
+                onClick={signOut}
+                className="btn btn-primary rounded-pill">
+                Sign Out
             </button>
         </div>
-
     );
-
 }
 export default ProfileLogout;
 
