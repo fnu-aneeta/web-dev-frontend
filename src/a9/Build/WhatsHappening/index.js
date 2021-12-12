@@ -1,7 +1,7 @@
 import React, {useState} from "react";
 import {useDispatch} from "react-redux";
 // import {postNewTweet} from "../../../../services/twitterService";
-import {postNewTweet} from "../../services/twitterService";
+import {postNewTweet} from "../../services/jobPostService";
 
 
 const WhatsHappening = () => {
@@ -16,18 +16,6 @@ const WhatsHappening = () => {
         postNewTweet(dispatch, {
             tweet: whatsHappening
         });
-
-
-
-        // dispatch({type: 'create-tweet',
-        //     tweet: {
-        //         tweet: whatsHappening
-        //     }
-        // });
-        //console.log(whatsHappening);
-        // dispatch({type: 'create-tweet',
-        //     tweet: whatsHappening
-        // });
     }
     return(
         <>

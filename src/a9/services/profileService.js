@@ -1,6 +1,6 @@
 import CONSTANTS  from "../../consts";
 
-export const getCurrentProfile = (dispatch) =>
+export const getCurrentProfile = (dispatch) => {
     fetch(CONSTANTS.API_PROFILE, {
         method: 'POST',
         credentials: 'include',
@@ -17,12 +17,12 @@ export const getCurrentProfile = (dispatch) =>
                 profile
             })
         );
+}
 
 //Todo: Update below
 export const findProfileById = (id) =>
     fetch(`${CONSTANTS.API_PROFILE}/${id}`)
         .then(response => {
-            console.log("Ponka1");
             response.json();
         });
 
@@ -36,8 +36,6 @@ export const updateCurrentProfile = (dispatch, profile) => {
 
     })
         .then(response => {
-            console.log("hhhhh")
-            // getCurrentProfile(dispatch);
             dispatch({
                 type: 'update-profile',
                 profile

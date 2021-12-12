@@ -45,7 +45,7 @@ export const likeTweet = (dispatch, tweet) =>
     })
 
         .then(response =>
-        {console.log(response)
+        {
         fetchAllTweets(dispatch);
             // dispatch({
             //     type: 'like-tweet',

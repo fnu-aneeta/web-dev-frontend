@@ -1,19 +1,36 @@
-import React, {useEffect} from "react";
+import React, {useEffect, useState} from "react";
 import {useDispatch, useSelector} from "react-redux";
 import JobPostListItem from "./JobPostListItem";
-import {fetchAllTweets} from "../../services/twitterService";
+import {fetchAllPostsByEmail} from "../../services/postService";
+import CONSTANTS from "../../../consts";
+import history from "../../../utils/history";
 
-const selectAllTweets = (state) => state.tweets.tweets;
+const selectAllPosts = (state) => state.post.post;
 
 const JobPostList = () => {
-    const tweets = useSelector(selectAllTweets);
+    const [profile, setProfile] = useState({});
+    const jobPosts = useSelector(selectAllPosts);
     const dispatch = useDispatch();
-    useEffect(() => fetchAllTweets(dispatch), [])
+    const fetchPostsByEmail = () => {
+        fetch(CONSTANTS.API_PROFILE, {
+            method: 'POST',
+            credentials: 'include'
+        }).then(res => res.json())
+            .then(profile => {
+                setProfile(profile);
+                fetchAllPostsByEmail(dispatch, profile.email)
+            }).catch(e => {
+            history.push('/login');
+            history.go();
+        });
+    }
+
+    useEffect(fetchPostsByEmail, [])
     return(
         <ul className="list-group">
             {
-                tweets.map(tweet =>
-                    <JobPostListItem tweet={tweet}/>
+                jobPosts.map(jobPost =>
+                    <JobPostListItem jobPost={jobPost}/>
                 )
             }
         </ul>

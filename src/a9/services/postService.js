@@ -10,3 +10,14 @@ export const fetchAllPosts = (dispatch, queryString) => {
             })
         );
 }
+
+export const fetchAllPostsByEmail = (dispatch, email) =>{
+    fetch(`${CONSTANTS.API_POSTS}/${email}`)
+        .then(response => response.json())
+        .then(post =>
+            dispatch({
+                type: 'fetch-all-posts-by-email',
+                post
+            })
+        );
+}

@@ -18,16 +18,6 @@ const ProfileHeader = () => {
             });
     }
 
-    const logout = () => {
-        fetch(CONSTANTS.API_LOGOUT, {
-            method: 'POST',
-            credentials: 'include'
-        }).then(res => {
-            history.push('/login');
-            history.go();
-        });
-    }
-
     useEffect(getProfile, []);
     return(
 

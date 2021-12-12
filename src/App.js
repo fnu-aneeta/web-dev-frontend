@@ -23,32 +23,29 @@ const store = createStore(reducer);
 
 function App() {
 
-  return (
+    return (
 
-   <BrowserRouter>
-     <Provider store={store}>
+        <BrowserRouter>
+            <Provider store={store}>
 
-         <div className="container">
-             <Route path={["/", "/home"]} exact={true} component={HomeScreen}/>
-             <Route path="/job-post" exact={true} component={JobPostScreen}/>
-             <Route path="/blog" exact={true} component={BlogScreen}/>
+                <div className="container">
+                    <Route path={["/", "/home"]} exact={true} component={HomeScreen}/>
+                    <Route path="/job-post" exact={true} component={JobPostScreen}/>
+                    <Route path="/blog" exact={true} component={BlogScreen}/>
 
-             <Route path="/editProfile" exact={true} component={EditProfileScreen}/>
-             <Route path="/contact" exact={true} component={ContactUsScreen}/>
-             <Route path="/privacy-policy" exact={true} component={PrivacyPolicyScreen}/>
-             <Route path="/signup">
-                 <Signup/>
-             </Route>
-             <Route path="/login" exact={true} component={LoginScreen}/>
-             <Route path="/profile" exact={true} component={ProfileScreen}/>
+                    <Route path="/editProfile" exact={true} component={EditProfileScreen}/>
+                    <Route path="/contact" exact={true} component={ContactUsScreen}/>
+                    <Route path="/privacy-policy" exact={true} component={PrivacyPolicyScreen}/>
+                    <Route path="/signup">
+                        <Signup/>
+                    </Route>
+                    <Route path="/login" exact={true} component={LoginScreen}/>
+                    <Route path="/profile" exact={true} component={ProfileScreen}/>
+                </div>
 
-
-        </div>
-           </Provider>
-       </BrowserRouter>
-
-
-  );
+            </Provider>
+        </BrowserRouter>
+    );
 }
 
 export default App;

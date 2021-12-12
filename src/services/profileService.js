@@ -21,7 +21,6 @@ export const updateCurrentProfile = (dispatch, profile) =>
 
     })
         .then(response => {
-            console.log(response)
           dispatch({
               type: 'update-profile',
               response

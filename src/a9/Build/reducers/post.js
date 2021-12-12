@@ -11,9 +11,13 @@ const post = (state = initialState, action) => {
                 post: action.post
             })
             break;
-
+        case 'fetch-all-posts-by-email':
+            return ({
+                post: action.post
+            })
+            break;
         default:
-            return(state);
+            return (state);
     }
 };
 

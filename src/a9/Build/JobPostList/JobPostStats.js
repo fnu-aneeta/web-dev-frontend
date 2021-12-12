@@ -1,54 +1,53 @@
 import React from "react";
 import {useDispatch} from "react-redux";
-// import {likeTweet} from "../../../../services/twitterService";
-import {likeTweet} from "../../services/twitterService";
+import {likeTweet} from "../../services/jobPostService";
 
 const JobPostStats = (
     {
-        tweet
+        stats
     }
 ) => {
-    const dispatc = useDispatch();
+    const dispatch = useDispatch();
     const likeClickHandler = () => {
         // dispatc({type: 'like-tweet', tweet});
 
-        if(tweet.liked === undefined || tweet.liked === false) {
-            tweet.liked = true;
-            tweet.stats.likes++;
+        if(stats.liked === undefined || stats.liked === false) {
+            stats.liked = true;
+            stats.stats.likes++;
         }
         else {
-            tweet.liked = false;
-            tweet.stats.likes--;
+            stats.liked = false;
+            stats.stats.likes--;
         }
 
 
-        likeTweet(dispatc, tweet);
+        likeTweet(dispatch, stats);
     };
-    if(!tweet || !tweet.stats) return null;
+    if(!stats || !stats.stats) return null;
     return (
         <div className="row mt-2">
         <div className="col">
             <i className="far fa-comment me-2">
             </i>
-            {tweet && tweet.stats && tweet.stats.comments}
+            {stats && stats.stats && stats.stats.comments}
         </div>
         <div className="col">
             <i className="fas fa-retweet me-2">
             </i>
-            {tweet && tweet.stats &&tweet.stats.retweets}
+            {stats && stats.stats &&stats.stats.retweets}
         </div>
         <div className="col" onClick={likeClickHandler}>
             {
-                    tweet && tweet.stats &&tweet.liked &&
+                    stats && stats.stats &&stats.liked &&
                 <i className="fas fa-heart me-2"
-                   style={{color: tweet.liked ? 'red': "white"}}>
+                   style={{color: stats.liked ? 'red': "white"}}>
                 </i>
             }
             {
-                tweet && !tweet.liked &&
+                stats && !stats.liked &&
                 <i className="far fa-heart me-2"></i>
             }
-            {tweet && tweet.stats && tweet.stats.likes}
+            {stats && stats.stats && stats.stats.likes}
         </div>
         <div className="col">
             <i className="fas fa-external-link-alt me-2">
