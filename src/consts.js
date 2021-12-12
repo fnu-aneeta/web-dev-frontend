@@ -3,7 +3,7 @@ const API_HOST = 'http://localhost:4000';
 
 const API_URL = `${API_HOST}/api`;
 
-const API_LOGIN = `${API_HOST}/api/login`;
+const API_SIGN_IN = `${API_HOST}/api/login`;
 const API_LOGOUT = `${API_HOST}/api/logout`;
 const API_WHO = `${API_HOST}/api/rand/who`;
 const API_POSTS = `${API_HOST}/api/posts`;
@@ -11,7 +11,7 @@ const API_SEARCH_POSTS = `${API_HOST}/api/search/posts`;
 const API_PROFILE = `${API_HOST}/api/profile`;
 
 module.exports = {
-    API_LOGIN,
+    API_SIGN_IN,
     API_WHO,
     API_URL,
     API_POSTS,

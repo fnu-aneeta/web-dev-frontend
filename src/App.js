@@ -3,20 +3,20 @@ import './vendors/fontawesome/css/all.min.css';
 import {BrowserRouter, Link, Route} from "react-router-dom";
 import {combineReducers,createStore} from "redux";
 import {Provider} from "react-redux";
-import who from "./a9/Build/reducers/who";
-import tweets from "./a9/Build/reducers/tweets";
-import profile from "./a9/Build/reducers/profile";
-import post from "./a9/Build/reducers/post";
-import Signup from "./a9/Build/LoginComponent/Signup";
-import JobPostScreen from "./a9/Build/JobPostScreen/JobPostScreen";
+import who from "./a9/components/reducers/who";
+import tweets from "./a9/components/reducers/tweets";
+import profile from "./a9/components/reducers/profile";
+import post from "./a9/components/reducers/post";
+import JobPostScreen from "./a9/components/JobPostScreen/JobPostScreen";
 import React from "react";
-import HomeScreen from "./a9/Build/HomeScreen/HomeScreen";
-import ProfileScreen from "./a9/Build/ProfileScreen/ProfileScreen";
-import EditProfileScreen from "./a9/Build/EditProfileScreen/EditProfileScreen";
-import LoginScreen from "./a9/Build/LoginComponent/LoginScreen";
-import BlogScreen from "./a9/Build/BlogComponent/BlogScreen";
-import ContactUsScreen from "./a9/Build/ContactUsScreen/ContactUsScreen";
-import PrivacyPolicyScreen from "./a9/Build/PrivacyPolicyScreen/PrivacyPolicyScreen";
+import HomeScreen from "./a9/components/HomeScreen/HomeScreen";
+import ProfileScreen from "./a9/components/ProfileScreen/ProfileScreen";
+import EditProfileScreen from "./a9/components/EditProfileScreen/EditProfileScreen";
+import SignInScreen from "./a9/components/SignInComponent/SignInScreen";
+import BlogScreen from "./a9/components/BlogComponent/BlogScreen";
+import ContactUsScreen from "./a9/components/ContactUsScreen/ContactUsScreen";
+import PrivacyPolicyScreen from "./a9/components/PrivacyPolicyScreen/PrivacyPolicyScreen";
+import SignupScreen from "./a9/components/SignUpComponent/SignupScreen";
 
 const reducer = combineReducers({tweets: tweets, who, profile, post})
 const store = createStore(reducer);
@@ -36,11 +36,9 @@ function App() {
                     <Route path="/editProfile" exact={true} component={EditProfileScreen}/>
                     <Route path="/contact" exact={true} component={ContactUsScreen}/>
                     <Route path="/privacy-policy" exact={true} component={PrivacyPolicyScreen}/>
-                    <Route path="/signup">
-                        <Signup/>
-                    </Route>
-                    <Route path="/login" exact={true} component={LoginScreen}/>
+                    <Route path="/sign-in" exact={true} component={SignInScreen}/>
                     <Route path="/profile" exact={true} component={ProfileScreen}/>
+                    <Route path="/sign-up" exact={true} component={SignupScreen}/>
                 </div>
 
             </Provider>
