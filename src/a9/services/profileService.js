@@ -102,10 +102,10 @@ export const findProfileById = (id) =>
             response.json();
         });
 
-export const updateCurrentProfile = (dispatch, profile) => {
-    fetch(`${CONSTANTS.API_PROFILE}/${profile.email}`, {
+export const editProfile = (dispatch, updatedProfile, email) => {
+    fetch(`${CONSTANTS.API_EDIT_PROFILE}/${email}`, {
         method: 'PUT',
-        body: JSON.stringify(profile),
+        body: JSON.stringify(updatedProfile),
         headers: {
             'content-type': 'application/json'
         }
@@ -114,7 +114,7 @@ export const updateCurrentProfile = (dispatch, profile) => {
         .then(response => {
             dispatch({
                 type: 'update-profile',
-                profile
+                updatedProfile
 
             })
         });

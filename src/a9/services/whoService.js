@@ -1,4 +1,4 @@
-import CONSTANTS  from "../../consts";
+import CONSTANTS from "../../consts";
 
 export const fetchAllWho = (dispatch) =>
     fetch(CONSTANTS.API_WHO)

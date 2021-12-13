@@ -1,46 +1,46 @@
 import React, {useState} from "react";
 import {useDispatch} from "react-redux";
-//import profile from "../../../../reducers/profile";
-// import profile from "../reducers/profile";
 import {Link} from "react-router-dom";
-import {useEffect} from "react";
-// import {updateCurrentProfile} from "../../../../services/profileService";
-import {updateCurrentProfile} from "../../a9/services/profileService";
+import {editProfile, fetchCurrentProfile} from "../../a9/services/profileService";
 
-const EditProfileItem = ({profile}) => {
-    // const profile = useSelector(state => state.profile.profile)
-
-    const [localProfile, setLocalProfile] = useState(profile);
+const EditProfileItem = () => {
+    const [profile, setProfile] = useState(fetchCurrentProfile);
+    const [localProfile, setLocalProfile] = useState({});
     const updateProfile = (update, type) => {
-        if (type==="uname"){
-            setLocalProfile(prevState => ( {...prevState, email: update}));
+        if (type==="firstName"){
+            setLocalProfile(prevState => ( {...prevState, firstName: update}));
         }
-        else if(type === "bio"){
-            setLocalProfile(prevState => ( {...prevState, bio: update}));
+        else if (type==="coverImage"){
+            setLocalProfile(prevState => ( {...prevState, coverImage: update}));
+        }
+        else if (type==="coverImage"){
+            setLocalProfile(prevState => ( {...prevState, coverImage: update}));
         }
 
-        else if(type === "location"){
-            setLocalProfile(prevState => ( {...prevState, location: update}));
+        else if (type==="profileImage"){
+            setLocalProfile(prevState => ( {...prevState, profileImage: update}));
+        }
+        else if(type === "lastName"){
+            setLocalProfile(prevState => ( {...prevState, lastName: update}));
+        }
+
+        else if(type === "jobTitle"){
+            setLocalProfile(prevState => ( {...prevState, jobTitle: update}));
         }
 
         else if(type === "website"){
             setLocalProfile(prevState => ( {...prevState, website: update}));
         }
 
-        else if(type === "birth"){
-            setLocalProfile(prevState => ( {...prevState, dateOfBirth: update}));
+        else if(type === "about"){
+            setLocalProfile(prevState => ( {...prevState, about: update}));
         }
 
     }
     const dispatch = useDispatch();
     const save = () => {
-        // dispatch({
-        //     type: 'update-profile',
-        //     profile: localProfile
-        // })
-        updateCurrentProfile(dispatch, {
-            profile: localProfile
-        });
+
+        editProfile(dispatch, localProfile, profile.email);
     }
 
     const discard = () => {
@@ -52,16 +52,6 @@ const EditProfileItem = ({profile}) => {
 
     return(
         <div>
-            {/*<h5>Edit Prof for: {profile.username} </h5>*/}
-            {/*<h4>Prof: {editProfile}</h4>*/}
-            {/*Name: <input*/}
-            {/*onChange={handleNameChange}*/}
-            {/*type="text"*/}
-            {/*value={name}/>*/}
-            {/*<button onClick={editClickHandler}>Edit</button>*/}
-            {/*<h1>Prof</h1>*/}
-            {/*<input onChange={updateProfile}*/}
-            {/*       value={localProfile.username}/>*/}
             <div className="row mt-2">
                 <div className="col-2">
                     <Link to="/profile">
@@ -86,12 +76,12 @@ const EditProfileItem = ({profile}) => {
             {/*// {JSON.stringify(profile)}*/}
   </div>
             <div className="row">
-                <img src={localProfile.bannerPicture} alt="bannerPicture"
+                <img src={profile && profile.coverImage} alt="coverImage"
                      width="100%"
                      height="200"/>
             </div>
             <div>
-                <img src={localProfile.profilePicture} alt="profilePicture" width="100px" height="100px"
+                <img src={profile && profile.profileImage} alt="profileImage" width="100px" height="100px"
                 className="rounded-circle"
                      style={{display: "inline-block",
                          position: "relative",
@@ -102,10 +92,10 @@ const EditProfileItem = ({profile}) => {
             <div>
                 <form>
                     <div className="form-group">
-                        <label htmlFor="formGroupExampleInput">Name</label>
-                        <input onChange={(event) => updateProfile(event.target.value, "uname")}
-                               type="text" className="form-control" id="name"
-                               value={localProfile.email}
+                        <label htmlFor="formGroupExampleInput">First Name</label>
+                        <input onChange={(event) => updateProfile(event.target.value, "firstName")}
+                               type="text" className="form-control" id="firstName"
+                               value={localProfile.firstName}
                                style={{width: "100%",
                                    padding: "10px",
                                    paddingTop: "15px",
@@ -113,10 +103,10 @@ const EditProfileItem = ({profile}) => {
                                    border: "1px solid"}}/>
                     </div>
                     <div className="form-group">
-                        <label htmlFor="formGroupExampleInput">Bio</label>
-                        <input onChange={(event) => updateProfile(event.target.value, "bio")}
-                               type="text" className="form-control" id="bio"
-                               value={localProfile.bio}
+                        <label htmlFor="formGroupExampleInput">Last Name</label>
+                        <input onChange={(event) => updateProfile(event.target.value, "lastName")}
+                               type="text" className="form-control" id="lastName"
+                               value={localProfile.lastName}
                                style={{width: "100%",
                                    padding: "10px",
                                    paddingTop: "15px",
@@ -126,10 +116,10 @@ const EditProfileItem = ({profile}) => {
                                    }}/>
                     </div>
                     <div className="form-group">
-                        <label htmlFor="formGroupExampleInput">Location</label>
-                        <input onChange={(event) => updateProfile(event.target.value, "location")}
-                               type="text" className="form-control" id="location"
-                               value={localProfile.location}
+                        <label htmlFor="formGroupExampleInput">Job Title</label>
+                        <input onChange={(event) => updateProfile(event.target.value, "jobTitle")}
+                               type="text" className="form-control" id="jobTitle"
+                               value={localProfile.jobTitle}
                                style={{width: "100%",
                                    padding: "10px",
                                    paddingTop: "15px",
@@ -150,10 +140,10 @@ const EditProfileItem = ({profile}) => {
                     </div>
 
                     <div className="form-group mb-2">
-                        <label htmlFor="formGroupExampleInput">Date of Birth</label>
-                        <input onChange={(event) => updateProfile(event.target.value, "birth")}
-                               type="date" className="form-control" id="birth"
-                               value={localProfile.dateOfBirth}
+                        <label htmlFor="formGroupExampleInput">About</label>
+                        <input onChange={(event) => updateProfile(event.target.value, "about")}
+                               type="text" className="form-control" id="about"
+                               value={localProfile.about}
                                style={{width: "100%",
                                    padding: "10px",
                                    paddingTop: "15px",

@@ -14,7 +14,7 @@ const PostSummaryListItem = (
                             <div className="row">
                                 <div className="col-10">
 
-                                    <div className="fw-bold">{post.title}</div>
+                                    <span className="fw-bold"><a href={post.url}> {post.title}</a></span>
 
                                    <div>{post.companyName}</div>
 
@@ -33,7 +33,15 @@ const PostSummaryListItem = (
                                     </div>
 
                                   <br/>
-                                    <h7 className="fw-normal text-color">{post.description}</h7>
+                                    <h7 className="fw-normal text-color">Company Description: {post.description}</h7>
+                                    <br/>
+                                    <br/>
+                                    <br/>
+                                    <h7 className="fw-normal text-color">Qualifications: {post.qualifications}</h7>
+                                    <br/>
+                                    <br/>
+                                    <br/>
+                                    <h7 className="fw-normal text-color">Responsibilities: {post.responsibilities}</h7>
                                 </div>
 
                                 <div className="col-2 mt-3">

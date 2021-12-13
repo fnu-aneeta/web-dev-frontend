@@ -1,5 +1,5 @@
 const API_HOST = 'http://localhost:4000';
-//const API_HOST = 'https://node-backend-portal.herokuapp.com';
+// const API_HOST = 'https://node-backend-portal.herokuapp.com';
 
 const API_URL = `${API_HOST}/api`;
 const API_SIGN_IN = `${API_HOST}/api/login`;
@@ -9,6 +9,7 @@ const API_POSTS = `${API_HOST}/api/posts`;
 const API_JOB_POST = `${API_HOST}/api/post`;
 const API_SEARCH_POSTS = `${API_HOST}/api/search/posts`;
 const API_PROFILE = `${API_HOST}/api/profile`;
+const API_EDIT_PROFILE = `${API_HOST}/api/user`;
 
 const LOCAL_STORAGE = {
     KEY_PROFILE: "profile",
@@ -22,6 +23,7 @@ const ROLE = {
 
 module.exports = {
     API_SIGN_IN,
+    API_EDIT_PROFILE,
     API_WHO,
     API_URL,
     API_POSTS,
