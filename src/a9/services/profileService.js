@@ -1,16 +1,36 @@
-import CONSTANTS, {LOCAL_STORAGE}  from "../../consts";
+import CONSTANTS, {LOCAL_STORAGE, ROLE} from "../../consts";
 import history from "../../utils/history";
 
-export const fetchCurrentProfile = (isRedirectLogin=true) =>{
-    const profileData = localStorage.getItem("profile");
+export const fetchCurrentProfile = (isRedirectSignIn=true) =>{
+    const profileData = localStorage.getItem(LOCAL_STORAGE.KEY_PROFILE);
     const objProfileData = JSON.parse(profileData)
-    if(!objProfileData && isRedirectLogin){
-        history.push('/sign-in')
-        history.go()
-        return null;
+    if(!objProfileData && isRedirectSignIn){
+        navigateToSignInPage();
     }
     return objProfileData || null;
 }
+
+export const fetchCurrentRecruiterProfile = (isRedirectSignIn=true) => {
+    const objProfileData = fetchCurrentProfile(isRedirectSignIn)
+    if (isProfileRoleRecruiter(objProfileData)) {
+        return objProfileData
+    }
+    if(isRedirectSignIn) {
+        navigateToSignInPage();
+    }
+    return null;
+}
+
+const navigateToSignInPage = () => {
+    localStorage.clear();
+    history.push('/sign-in')
+    history.go()
+}
+
+export const isProfileRoleRecruiter = (profile) => {
+    return profile && profile.roles && profile.roles.includes(ROLE.RECRUITER)
+}
+
 
 export const signIn = (credentials) => {
     localStorage.clear();
@@ -31,8 +51,7 @@ export const signIn = (credentials) => {
                 alert(res.message)
                 return;
             }
-            history.push('/sign-in');
-            history.go();
+            navigateToSignInPage()
         }
     }).catch(e => {
         alert("Server is down")
@@ -46,8 +65,7 @@ export const signOut = () =>{
         method: 'POST',
         credentials: 'include'
     }).then(res => {
-        history.push('/sign-in');
-        history.go();
+        navigateToSignInPage()
     });
 }
 

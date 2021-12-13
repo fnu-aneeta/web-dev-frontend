@@ -2,8 +2,14 @@ import NavigationSidebar from "../NavigationSidebar";
 import JobPostComponent from "./JobPostComponent.js";
 import PostSummaryList from "../PostSummaryList/PostSummaryList";
 import WhatsHappening from "../WhatsHappening";
+import {useState} from "react";
+import { fetchCurrentRecruiterProfile} from "../../a9/services/profileService";
 
 const JobPostScreen = () => {
+    const [profile, setProfile] = useState(fetchCurrentRecruiterProfile);
+
+    if(!profile) return null
+
     return (
         <div className="container">
 

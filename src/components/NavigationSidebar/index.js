@@ -1,12 +1,11 @@
 import {Link} from "react-router-dom";
 import React, {useState} from "react";
 import '../HomeScreen/home.css';
-import {fetchCurrentProfile} from "../../a9/services/profileService";
+import {fetchCurrentProfile, isProfileRoleRecruiter} from "../../a9/services/profileService";
 import {ROLE} from "../../consts";
 const NavigationSidebar = ({active = 'home'}) => {
     const isActive = (active, path) => `list-group-item ${active === path? 'active' : ''}`
     const [profile, setProfile] = useState(()=>fetchCurrentProfile(false));
-    const isProfileRoleRecruiter = () => profile && profile.roles && profile.roles.includes(ROLE.RECRUITER)
 
     return(
 
@@ -18,7 +17,7 @@ const NavigationSidebar = ({active = 'home'}) => {
                     <span className="d-none d-xl-inline-block">Home</span>
                 </Link>
                 {
-                    isProfileRoleRecruiter()?
+                    isProfileRoleRecruiter(profile)?
                     <Link className={isActive(active, 'explore')}
                           to="/job-post">
                         <i className="fa fa-mail-bulk"></i>&nbsp;

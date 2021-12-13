@@ -22,6 +22,10 @@ const JobPostListItem = ({jobPost}) => {
                         <i onClick={onDeleteJobPost} className="fa fa-times fa-pull-right">
 
                         </i>
+
+                        <div className="fw-bold">
+                            {jobPost.userName}
+                        </div>
                         <span className="fw-bold"><a href={jobPost.url}> {jobPost.title}</a></span>
                         {jobPost.verified && <i className="ms-1 fas fa-badge-check"></i>}
                         <div className="ms-1 text-secondary">

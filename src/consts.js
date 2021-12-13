@@ -10,7 +10,8 @@ const API_SEARCH_POSTS = `${API_HOST}/api/search/posts`;
 const API_PROFILE = `${API_HOST}/api/profile`;
 
 const LOCAL_STORAGE = {
-    KEY_PROFILE: "profile"
+    KEY_PROFILE: "profile",
+    KEY_POSTS: "posts"
 }
 
 const ROLE = {
