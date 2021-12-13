@@ -6,6 +6,7 @@ const API_SIGN_IN = `${API_HOST}/api/login`;
 const API_LOGOUT = `${API_HOST}/api/logout`;
 const API_WHO = `${API_HOST}/api/rand/who`;
 const API_POSTS = `${API_HOST}/api/posts`;
+const API_JOB_POST = `${API_HOST}/api/post`;
 const API_SEARCH_POSTS = `${API_HOST}/api/search/posts`;
 const API_PROFILE = `${API_HOST}/api/profile`;
 
@@ -24,6 +25,7 @@ module.exports = {
     API_WHO,
     API_URL,
     API_POSTS,
+    API_JOB_POST,
     API_PROFILE,
     API_LOGOUT,
     API_SEARCH_POSTS,

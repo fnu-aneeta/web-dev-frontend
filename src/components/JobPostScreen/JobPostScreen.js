@@ -1,7 +1,7 @@
 import NavigationSidebar from "../NavigationSidebar";
 import JobPostComponent from "./JobPostComponent.js";
 import PostSummaryList from "../PostSummaryList/PostSummaryList";
-import WhatsHappening from "../WhatsHappening";
+import CreateJobPostComponent from "../CreateJobPostComponent/CreateJobPostComponent";
 import {useState} from "react";
 import { fetchCurrentRecruiterProfile} from "../../a9/services/profileService";
 
@@ -18,7 +18,7 @@ const JobPostScreen = () => {
                     <NavigationSidebar active="explore"/>
                 </div>
                 <div className="col-6 col-sm-10 col-md-10 col-lg-7 col-xl-6 col-xxl-6">
-                    <WhatsHappening/>
+                    <CreateJobPostComponent/>
                     <JobPostComponent/>
                 </div>
                 <div className="col-4 d-none d-lg-block col-lg-4 col-xl-4 col-xxl-4">

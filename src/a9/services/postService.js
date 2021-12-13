@@ -1,10 +1,40 @@
 import CONSTANTS, {LOCAL_STORAGE} from "../../consts";
-import {fetchCurrentProfile, isProfileRoleRecruiter} from "./profileService";
+import {fetchCurrentProfile, fetchCurrentRecruiterProfile, isProfileRoleRecruiter} from "./profileService";
 
 export const fetchCurrentProfileJobPostsLocalStorage = () =>{
     const jobPosts = localStorage.getItem(LOCAL_STORAGE.KEY_POSTS);
     const objJobPosts = JSON.parse(jobPosts)
     return objJobPosts || null;
+}
+
+export const postJob = (jobPostDetails) => {
+    const profile = fetchCurrentRecruiterProfile()
+    const jobPost = {
+        userName: profile.firstName + " " + profile.lastName,
+        companyName: profile.company,
+        email: profile.email,
+        isJobPost: true,
+
+        address: jobPostDetails.address,
+        salary: jobPostDetails.salary,
+        qualifications: jobPostDetails.qualifications,
+        responsibilities: jobPostDetails.responsibilities,
+        title: jobPostDetails.title,
+        skills: jobPostDetails.skills,
+        description: jobPostDetails.description
+    }
+    fetch(CONSTANTS.API_JOB_POST, {
+        method: 'POST',
+        body: JSON.stringify(jobPost),
+        credentials: 'include',
+        headers: {
+            'content-type': 'application/json'
+        }
+    }).then(response => response.json())
+        .catch(e => {
+            //alert("Server is down!!")
+            console.log(e)
+        })
 }
 
 export const fetchCurrentProfileJobPosts = () => {
@@ -34,5 +64,18 @@ export const fetchAllPosts = (dispatch, queryString) => {
                 post
             })
         );
+}
+
+export const deleteJobPost = (jobId) =>{
+    fetch(`${CONSTANTS.API_JOB_POST}/${jobId}`, {
+        method: 'DELETE',
+        credentials: 'include',
+        headers: {
+            'content-type': 'application/json'
+        }
+    }).then(response => response.json())
+        .catch(e => {
+            console.log(e)
+        })
 }
 

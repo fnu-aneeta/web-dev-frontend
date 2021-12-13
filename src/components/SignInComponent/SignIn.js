@@ -16,6 +16,7 @@ const SignIn = () => {
                 value={user.email}
                 onChange={(e) => setUser({...user, email: e.target.value})}
                 placeholder="email"
+                type="email"
                 className="form-control"/>
             <br/>
             <input
