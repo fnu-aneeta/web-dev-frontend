@@ -1,7 +1,7 @@
 import React, {useState} from "react";
 import {useDispatch} from "react-redux";
 import {Link} from "react-router-dom";
-import {editProfile, fetchCurrentProfile} from "../../a9/services/profileService";
+import {editProfile, fetchCurrentProfile, fetchProfileFromEmail} from "../../a9/services/profileService";
 
 const EditProfileItem = () => {
     const [profile, setProfile] = useState(fetchCurrentProfile);
@@ -24,6 +24,14 @@ const EditProfileItem = () => {
             setLocalProfile(prevState => ( {...prevState, lastName: update}));
         }
 
+        else if(type === "company"){
+            setLocalProfile(prevState => ( {...prevState, company: update}));
+        }
+
+        // else if(type === "education"){
+        //     setLocalProfile(prevState => ( {...prevState, education: update}));
+        // }
+
         else if(type === "jobTitle"){
             setLocalProfile(prevState => ( {...prevState, jobTitle: update}));
         }
@@ -38,9 +46,9 @@ const EditProfileItem = () => {
 
     }
     const dispatch = useDispatch();
-    const save = () => {
-
-        editProfile(dispatch, localProfile, profile.email);
+    const save = async () => {
+        await editProfile(dispatch, localProfile, profile.email)
+        setTimeout(fetchProfileFromEmail, 2000, profile.email)
     }
 
     const discard = () => {
@@ -66,11 +74,11 @@ const EditProfileItem = () => {
                 </div>
 
                 <div className="col-1">
-                    <Link to="/profile">
+                    {/*<Link to="/profile">*/}
                         <button onClick={save}
                                 className="rounded-pill margin-left">Save
                         </button>
-                    </Link>
+                    {/*</Link>*/}
                 </div>
             {/*// <button onClick={save}> save </button>*/}
             {/*// {JSON.stringify(profile)}*/}
@@ -126,6 +134,30 @@ const EditProfileItem = () => {
                                    background: "none",
                                    border: "1px solid"}}/>
                     </div>
+
+                    <div className="form-group">
+                        <label htmlFor="formGroupExampleInput">Company</label>
+                        <input onChange={(event) => updateProfile(event.target.value, "company")}
+                               type="text" className="form-control" id="company"
+                               value={localProfile.company}
+                               style={{width: "100%",
+                                   padding: "10px",
+                                   paddingTop: "15px",
+                                   background: "none",
+                                   border: "1px solid"}}/>
+                    </div>
+
+                    {/*<div className="form-group">*/}
+                    {/*    <label htmlFor="formGroupExampleInput">Education</label>*/}
+                    {/*    <input onChange={(event) => updateProfile(event.target.value, "education")}*/}
+                    {/*           type="text" className="form-control" id="education"*/}
+                    {/*           value={localProfile.education}*/}
+                    {/*           style={{width: "100%",*/}
+                    {/*               padding: "10px",*/}
+                    {/*               paddingTop: "15px",*/}
+                    {/*               background: "none",*/}
+                    {/*               border: "1px solid"}}/>*/}
+                    {/*</div>*/}
 
                     <div className="form-group">
                         <label htmlFor="formGroupExampleInput">Website</label>

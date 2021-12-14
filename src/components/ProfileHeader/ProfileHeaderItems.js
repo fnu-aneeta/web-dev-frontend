@@ -58,6 +58,17 @@ const ProfileHeaderItems = ({profile = {}}) => {
                     <div className="row">
                         <div>{profile && profile.website}</div>
                     </div>
+                    <div className="row">
+                        <div>{profile && profile.about}</div>
+                    </div>
+
+                    <div>
+                        <span>{profile && profile.education && profile.education[0] && profile.education[0].school}</span>
+                    </div>
+
+                    {/*<div>*/}
+                    {/*    <span>{profile && profile.experience && profile.experience.school}</span>*/}
+                    {/*</div>*/}
                 </div>
 
             </table>

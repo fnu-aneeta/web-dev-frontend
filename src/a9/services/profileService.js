@@ -59,6 +59,31 @@ export const signIn = (credentials) => {
     });
 }
 
+export const fetchProfileFromEmail = (email) => {
+    fetch(`${CONSTANTS.API_PROFILE_BY_EMAIL}/${email}`, {
+        credentials: 'include',
+        headers: {
+            'content-type': 'application/json'
+        }
+    }).then(res => res.json()).then(res => {
+        if (res && res.email) {
+            localStorage.setItem(LOCAL_STORAGE.KEY_PROFILE, JSON.stringify(res));
+            history.push("/profile");
+            history.go();
+        } else {
+            console.log("No we didn't")
+            if(res && res.message){
+                alert(res.message)
+                return;
+            }
+            navigateToSignInPage()
+        }
+    }).catch(e => {
+        alert("Server is down")
+        console.log(e);
+    });
+}
+
 export const signOut = () =>{
     localStorage.clear();
     fetch(CONSTANTS.API_LOGOUT, {

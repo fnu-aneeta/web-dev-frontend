@@ -10,6 +10,7 @@ const API_JOB_POST = `${API_HOST}/api/post`;
 const API_SEARCH_POSTS = `${API_HOST}/api/search/posts`;
 const API_PROFILE = `${API_HOST}/api/profile`;
 const API_EDIT_PROFILE = `${API_HOST}/api/user`;
+const API_PROFILE_BY_EMAIL = `${API_HOST}/api/user`;
 
 const LOCAL_STORAGE = {
     KEY_PROFILE: "profile",
@@ -31,6 +32,7 @@ module.exports = {
     API_PROFILE,
     API_LOGOUT,
     API_SEARCH_POSTS,
+    API_PROFILE_BY_EMAIL,
 
     ROLE,
     LOCAL_STORAGE
