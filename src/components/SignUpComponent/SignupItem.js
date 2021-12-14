@@ -1,6 +1,7 @@
 import React, {useState} from "react";
 import {useDispatch} from "react-redux";
 import history from "../../utils/history"
+import CONSTANTS from "../../consts"
 
 const SignupItem = () => {
 
@@ -8,7 +9,7 @@ const SignupItem = () => {
 
     const dispatch = useDispatch();
     const save = () => {
-        fetch(`https://node-backend-portal.herokuapp.com/api/register`, {
+        fetch(CONSTANTS.API_CREATE_USER, {
             method: 'POST',
             body: JSON.stringify(user),
             credentials: 'include',
@@ -16,7 +17,8 @@ const SignupItem = () => {
                 'content-type': 'application/json'
             }
         }).then(status => {
-            history.push('/');
+            localStorage.clear()
+            history.push('/sign-in');
             history.go();
         });
     }
