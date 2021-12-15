@@ -1,7 +1,8 @@
 import React, {useState} from "react";
 import {useDispatch} from "react-redux";
 import history from "../../utils/history"
-import CONSTANTS from "../../consts"
+import CONSTANTS, {LOCAL_STORAGE} from "../../consts"
+import {navigateToSignInPage} from "../../a9/services/profileService"
 
 const SignupItem = () => {
 
@@ -16,10 +17,20 @@ const SignupItem = () => {
             headers: {
                 'content-type': 'application/json'
             }
-        }).then(status => {
-            localStorage.clear()
-            history.push('/sign-in');
-            history.go();
+        }).then(res => res.json()).then(res => {
+            if (res && res.email) {
+                localStorage.clear()
+                navigateToSignInPage()
+            } else {
+                if(res && res.message){
+                    alert(res.message)
+                    return;
+                }
+                navigateToSignInPage()
+            }
+        }).catch(e => {
+            alert("Server is down")
+            console.log(e);
         });
     }
 

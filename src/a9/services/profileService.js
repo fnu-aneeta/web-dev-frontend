@@ -21,7 +21,7 @@ export const fetchCurrentRecruiterProfile = (isRedirectSignIn=true) => {
     return null;
 }
 
-const navigateToSignInPage = () => {
+export const navigateToSignInPage = () => {
     localStorage.clear();
     history.push('/sign-in')
     history.go()
